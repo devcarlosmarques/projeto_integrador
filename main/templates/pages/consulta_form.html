@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h2>Marcar Consulta</h2>
+    <p>Preencha os campos abaixo</p>
+</div>
+<hr>
+<div class="container mt-5">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_paciente">Paciente</label>
+            <select class="form-control" id="id_paciente" name="paciente">
+                {% for paciente in form.paciente.field.queryset %}
+                    <option value="{{ paciente.id }}">{{ paciente.nome }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="id_medico">Médico</label>
+            <select class="form-control" id="id_medico" name="medico">
+                {% for medico in form.medico.field.queryset %}
+                    <option value="{{ medico.id }}" data-especialidade="{{ medico.especialidade }}">
+                        {{ medico.nome }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="especialidade">Especialidade</label>
+            <input type="text" id="especialidade" class="form-control" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="id_data_consulta">Data da Consulta</label>
+            <input type="datetime-local" class="form-control" id="id_data_consulta" name="data" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Marcar Consulta</button>
+    </form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const medicoSelect = document.getElementById('id_medico');
+        const especialidadeField = document.getElementById('especialidade');
+
+        medicoSelect.addEventListener('change', function() {
+            const selectedOption = medicoSelect.options[medicoSelect.selectedIndex];
+            const especialidade = selectedOption.getAttribute('data-especialidade');
+            especialidadeField.value = especialidade;
+        });
+
+        // Preenche a especialidade no carregamento inicial (se já houver uma seleção)
+        if (medicoSelect.value) {
+            const selectedOption = medicoSelect.options[medicoSelect.selectedIndex];
+            const especialidade = selectedOption.getAttribute('data-especialidade');
+            especialidadeField.value = especialidade;
+        }
+    });
+</script>
+{% endblock %}

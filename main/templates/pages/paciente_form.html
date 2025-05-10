@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h2>Cadastro de Paciente</h2>
+    <p>Preencha os campos abaixo</p>
+</div>
+<hr>
+
+<div class="container mt-5">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="id_nome" class="form-label">Nome</label>
+                        {{ form.nome }}
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="id_cpf" class="form-label">CPF</label>
+                        {{ form.cpf }}
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="id_telefone" class="form-label">Telefone</label>
+                        {{ form.telefone }}
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="id_email" class="form-label">E-mail</label>
+                        {{ form.email }}
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for="id_endereco" class="form-label">Endereço</label>
+                        {{ form.endereco }}
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for="id_bairro" class="form-label">Bairro</label>
+                        {{ form.bairro }}
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for="id_cidade" class="form-label">Cidade</label>
+                        {{ form.cidade }}
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for="id_estado" class="form-label">Estado</label>
+                        {{ form.estado }}
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

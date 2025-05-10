@@ -1,0 +1,96 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #4e73df;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+}
+
+form input {
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+form input:focus {
+    border-color: #3f51b5;
+    outline: none;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #3f51b5;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 50%;
+}
+
+button:hover {
+    background-color: #303f9f;
+}
+
+/* Estilos para erros */
+.errorlist {
+    color: red;
+    margin: 0 0 1rem 0;
+    font-size: 0.9rem;
+    list-style: none;
+    padding-left: 0;
+}
+
+.errorlist li {
+    margin-bottom: 0.5rem;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.acesso-texto {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+  }

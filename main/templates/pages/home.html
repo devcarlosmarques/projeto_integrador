@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="text-center mt-5">
+    <h2>Bem-vindo ao MedControl</h2>
+    <p>Sistema de controle de consultas medicas</p>
+</div>
+<hr>
+<div class="container mt-5">
+    <div class="container-fluid mt-3">
+        <div class="row text-white">
+            <div class="col-md-4 mb-3 d-flex align-items-stretch">
+                <div class="card bg-primary w-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Total de Médicos</h5>
+                        <p class="card-text display-4">{{ total_medicos }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3 d-flex align-items-stretch">
+                <div class="card bg-success w-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Total de Pacientes</h5>
+                        <p class="card-text display-4">{{ total_pacientes }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3 d-flex align-items-stretch">
+                <div class="card bg-info w-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Total de Consultas</h5>
+                        <p class="card-text display-4">{{ total_consultas }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
+    <h3>Notícias e Atualizações</h3>
+    <div class="alert alert-info" role="alert">
+        <strong>Novo Médico Adicionado:</strong> Dr. João Silva, especialista em Cardiologia.
+    </div>
+    <div class="alert alert-warning" role="alert">
+        <strong>Horários de Atendimento:</strong> O atendimento será estendido nas sextas-feiras até as 20h.
+    </div>
+</div>
+{% endblock %}

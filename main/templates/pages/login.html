@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página de Login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+    <!-- Adicionei o link para o CSS -->
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="profile-icon">
+        <img src="{% static 'img/logo.png' %}" alt="Ícone de Perfil" />
+        <!-- Mantido o ícone de perfil -->
+      </div>
+      <h2 class="acesso-texto">Acesso ao Sistema</h2>
+
+      <!-- Exibir mensagens de login (como erro ou sucesso) -->
+      {% if messages %}
+        <div class="messages">
+          {% for message in messages %}
+            <div class="message {{ message.tags }}">
+              {{ message }}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <form class="login-form" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Login" required />
+        <!-- Campo de login mantido -->
+        <input type="password" name="password" placeholder="Senha" required />
+        <!-- Campo de senha mantido -->
+        <button type="submit" class="btn-entrar">Entrar</button>
+        <!-- Botão de entrar mantido -->
+      </form>
+    </div>
+  </body>
+</html>

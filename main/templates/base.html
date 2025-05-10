@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}MedControl{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/script2.js' %}" defer></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="sidebar open">
+        <div class="logo-details">
+            <div class="logo_name">MedControl</div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="{% url 'home' %}">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Início</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'cadastrar_medico' %}">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Cadastrar Médico</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'listar_medicos' %}">
+                    <i class='bx bx-folder'></i>
+                    <span class="links_name">Consultar Médico</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'cadastrar_paciente' %}">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Cadastrar Paciente</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'listar_pacientes' %}">
+                    <i class='bx bx-folder'></i>
+                    <span class="links_name">Consultar Paciente</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'marcar_consulta' %}">
+                    <i class='bx bx-plus-medical'></i>
+                    <span class="links_name">Marcar Consulta</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'listar_consultas' %}">
+                    <i class='bx bx-folder'></i>
+                    <span class="links_name">Consulta Marcadas</span>
+                </a>
+            </li>
+            <li class="profile">
+                <div class="profile-details d-flex justify-content-between align-items-center">
+                    <div class="name_job">
+                        <div class="job">Usuário: {{ user.username }}</div>
+                        <div class="job">Email: {{ user.email }}</div>
+                    </div>
+                    <form action="{% url 'logout' %}" method="post" class="ml-2">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-danger">Sair</button>
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <section class="home-sectiona">
+        <div class="text">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
