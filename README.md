@@ -34,7 +34,7 @@ MedControl é um sistema web para controle e gerenciamento de consultas médicas
    ```bash
     python manage.py migrate
 
-. **Criar Acesso ao Sistema**
+4. **Criar Acesso ao Sistema**
    ```bash
     python manage.py createsuperuser
 
